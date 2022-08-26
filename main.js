@@ -1,3 +1,4 @@
+const container = document.querySelector(".container");
 const result = document.querySelector(".result");
 const ac = document.querySelector(".ac");
 const del = document.querySelector(".del");
@@ -43,32 +44,45 @@ const calculator = keys.forEach((input) => {
   input.addEventListener("click", function (e) {
     const key = e.target;
     const action = key.dataset.action;
+    let displayedNum;
+    let keyContent;
     if (e.target.matches("button")) {
-      const keyContent = key.textContent;
-      const displayedNum = result.textContent;
+      keyContent = key.textContent; //we are updating our variable.
+      displayedNum = result.textContent;
+
+      //when a user hit a number key. remove the operator
+      // Array.from(key.parentNode.children).forEach((k) =>
+      //   k.classList.remove("is-depressed")
+      // );
     }
 
     if (!action) {
       if (!displayedNum) {
         result.textContent = keyContent;
       } else {
-        result.textContent = displayedNum + keyContent;
+        result.textContent = displayedNum + keyContent; //appending click key to displayedNum(empty at first)
       }
-    } else if (
+    }
+    if (
       action === "add" ||
       action === "subtract" ||
       action === "multiply" ||
       action === "divide"
     ) {
-      console.log("operator key");
-    } else if (action === "decimal") {
-      console.log("decimal operator");
-    } else if (action === "del") {
-      console.log("del key");
-    } else if (action === "clearAll") {
-      console.log("clear operator");
-    } else if (action === "calculate") {
-      console.log("equal key");
+      const operator = key.classList.add("is-depressed"); //when a user hit an operator, show it is active
+      result.textContent = displayedNum + operator;
+    }
+    if (action === "decimal") {
+      result.textContent = displayedNum + ".";
+    }
+    if (action === "del") {
+      console.log("del key"); //remove each figures or operator from result.textContent
+    }
+    if (action === "clearAll") {
+      console.log("clear operator"); //delete everything in the result.textContent
+    }
+    if (action === "calculate") {
+      console.log("equal key"); //equate everything that is in result.keyContent
     }
   });
 });
