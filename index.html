@@ -10,27 +10,56 @@
     <script src="main.js" defer></script>
   </head>
   <body>
-    <h2>JavaScript Calculator</h2>
+    <h2>
+      Contact me on
+      <a href="https://www.linkedin.com/in/joshua-onwuemene" target="_blank"
+        >Linkedln</a
+      >
+    </h2>
     <div class="container">
-      <div class="result"></div>
-      <button class="ac" data-action="clearAll">AC</button>
-      <button class="del" data-action="del">DEL</button>
-      <button class="divide" data-action="divide">÷</button>
-      <button class="one">1</button>
-      <button class="two">2</button>
-      <button class="three">3</button>
-      <button class="multiply" data-action="multiply">x</button>
-      <button class="four">4</button>
-      <button class="five">5</button>
-      <button class="six">6</button>
-      <button class="add" data-action="add">+</button>
-      <button class="seven">7</button>
-      <button class="eight">8</button>
-      <button class="nine">9</button>
-      <button class="subtract" data-action="subtract">-</button>
-      <button class="dot" data-action="decimal">.</button>
-      <button class="zero">0</button>
-      <button class="equalTo" data-action="calculate">=</button>
+      <table>
+        <tr>
+          <th colspan="4">
+            <input
+              type="text"
+              class="display"
+              value=""
+              readonly
+              placeholder="0"
+            />
+          </th>
+        </tr>
+        <tr>
+          <td><button class="open-par">(</button></td>
+          <td><button class="close-par">)</button></td>
+          <td><button class="delete">Del</button></td>
+          <td><button class="add">+</button></td>
+        </tr>
+
+        <tr>
+          <td><button class="seven">7</button></td>
+          <td><button class="eight">8</button></td>
+          <td><button class="nine">9</button></td>
+          <td><button class="minus">-</button></td>
+        </tr>
+        <tr>
+          <td><button class="four">4</button></td>
+          <td><button class="five">5</button></td>
+          <td><button class="six">6</button></td>
+          <td><button class="multiply">x</button></td>
+        </tr>
+        <tr>
+          <td><button class="one">1</button></td>
+          <td><button class="two">2</button></td>
+          <td><button class="three">3</button></td>
+          <td><button class="divide">÷</button></td>
+        </tr>
+        <tr>
+          <td><button class="dot">.</button></td>
+          <td><button class="zero">0</button></td>
+          <td colspan="2"><button class="equalTo">=</button></td>
+        </tr>
+      </table>
     </div>
   </body>
 </html>

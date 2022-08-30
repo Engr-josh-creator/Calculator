@@ -1,7 +1,7 @@
-const container = document.querySelector(".container");
-const result = document.querySelector(".result");
-const ac = document.querySelector(".ac");
-const del = document.querySelector(".del");
+const open = document.querySelector(".open-par");
+const close = document.querySelector(".close-par");
+const display = document.querySelector(".display");
+const del = document.querySelector(".delete");
 const divide = document.querySelector(".divide");
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
@@ -14,75 +14,91 @@ const add = document.querySelector(".add");
 const seven = document.querySelector(".seven");
 const eight = document.querySelector(".eight");
 const nine = document.querySelector(".nine");
-const subtract = document.querySelector(".subtract");
+const minus = document.querySelector(".minus");
 const dot = document.querySelector(".dot");
 const zero = document.querySelector(".zero");
 const equalTo = document.querySelector(".equalTo");
 
-const keys = [
-  ac,
-  del,
-  divide,
-  one,
-  two,
-  three,
-  multiply,
-  four,
-  five,
-  six,
-  add,
-  seven,
-  eight,
-  nine,
-  subtract,
-  dot,
-  zero,
-  equalTo,
-];
+//display.value tells the web browser to display whatever the value holds while the += means "append". i.e append what we click to our previous value.
 
-const calculator = keys.forEach((input) => {
-  input.addEventListener("click", function (e) {
-    const key = e.target;
-    const action = key.dataset.action;
-    let displayedNum;
-    let keyContent;
-    if (e.target.matches("button")) {
-      keyContent = key.textContent; //we are updating our variable.
-      displayedNum = result.textContent;
+open.addEventListener("click", function () {
+  display.value += "(";
+});
 
-      //when a user hit a number key. remove the operator
-      // Array.from(key.parentNode.children).forEach((k) =>
-      //   k.classList.remove("is-depressed")
-      // );
-    }
+close.addEventListener("click", function () {
+  display.value += ")";
+});
 
-    if (!action) {
-      if (!displayedNum) {
-        result.textContent = keyContent;
-      } else {
-        result.textContent = displayedNum + keyContent; //appending click key to displayedNum(empty at first)
-      }
-    }
-    if (
-      action === "add" ||
-      action === "subtract" ||
-      action === "multiply" ||
-      action === "divide"
-    ) {
-      const operator = key.classList.add("is-depressed"); //when a user hit an operator, show it is active
-      result.textContent = displayedNum + operator;
-    }
-    if (action === "decimal") {
-      result.textContent = displayedNum + ".";
-    }
-    if (action === "del") {
-      console.log("del key"); //remove each figures or operator from result.textContent
-    }
-    if (action === "clearAll") {
-      console.log("clear operator"); //delete everything in the result.textContent
-    }
-    if (action === "calculate") {
-      console.log("equal key"); //equate everything that is in result.keyContent
-    }
-  });
+one.addEventListener("click", function () {
+  display.value += "1";
+});
+
+two.addEventListener("click", function () {
+  display.value += "2";
+});
+
+three.addEventListener("click", function () {
+  display.value += "3";
+});
+
+four.addEventListener("click", function () {
+  display.value += "4";
+});
+
+five.addEventListener("click", function () {
+  display.value += "5";
+});
+
+six.addEventListener("click", function () {
+  display.value += "6";
+});
+
+seven.addEventListener("click", function () {
+  display.value += "7";
+});
+
+eight.addEventListener("click", function () {
+  display.value += "8";
+});
+
+nine.addEventListener("click", function () {
+  display.value += "9";
+});
+
+zero.addEventListener("click", function () {
+  display.value += "0";
+});
+
+dot.addEventListener("click", function () {
+  display.value += ".";
+});
+
+del.addEventListener("click", function () {
+  //there is no plus here, because instead of appending, we replacing it with an empty display
+  display.value = "";
+});
+
+equalTo.addEventListener("click", function () {
+  //this means, try(run) this code for us, but if you catch(see) any error in the input, then display this error message "WRONG INPUT"
+  try {
+    display.value = eval(display.value);
+  } catch (err) {
+    display.value = "WRONG INPUT";
+  }
+});
+
+add.addEventListener("click", function () {
+  display.value += "+";
+});
+
+minus.addEventListener("click", function () {
+  display.value += "-";
+});
+
+multiply.addEventListener("click", function () {
+  display.value += "*";
+});
+
+divide.addEventListener("click", function () {
+  display.value += "/";
 });
