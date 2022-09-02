@@ -76,6 +76,7 @@ dot.addEventListener("click", function () {
 del.addEventListener("click", function () {
   //there is no plus here, because instead of appending, we replacing it with an empty display
   display.value = "";
+  // display.value = display.value.slice(0, -1); // this is to delete the last element in the display
 });
 
 equalTo.addEventListener("click", function () {
